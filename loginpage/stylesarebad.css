@@ -1,0 +1,71 @@
+body{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        height:100vh;
+   
+        background-color:grey;
+}
+button{
+        border: 2px solid black;
+        border-radius: 2px;
+        cursor: pointer;
+}
+
+
+#bigbox{
+        
+        border: 2px, solid, black;
+        border-radius: 10px;
+        background: whitesmoke;
+        padding: 25px;
+}
+.textinp{
+        border: 1px, solid, black;
+        border-radius: 5px;
+}
+#buttbox{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+}
+button{
+        display: flex;
+        margin: auto;
+}
+
+
+.switch{
+        opacity: 0;
+}
+.switch-button{
+        width: 80px;
+        height: 40px;
+        background: green;
+        position: relative;
+        cursor: pointer;
+        border-radius: 20px;
+        box-shadow: inset 0 3px 5px black ;
+}
+.switch-button:before{
+        content: '';
+        position: absolute;
+        height: 32px;
+        width: 32px;
+        background: linear-gradient(#fff, #f2f2f2);
+        left: 4px;
+        top: 4px;
+        transition: all 150ms ease-out;
+        border-radius: 50%;
+        box-shadow: 0 8px 6px -4px black;
+}
+input[type=checkbox]:checked + .switch-button:before {
+        left:42px;
+}
+input[type=checkbox]:checked + .switch-button {
+        background: blue;
+}
+
+
