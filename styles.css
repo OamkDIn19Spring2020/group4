@@ -1,0 +1,70 @@
+
+body{
+    background-color: antiquewhite;
+}
+
+
+.contentbox{
+    margin: auto;
+    margin-top: 75px;
+    width: 950px;
+}
+.login{
+    width: 100px;
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px groovy black;
+    border-radius: 15px;
+    background-color: brown;
+    text-align: center;
+    font-weight: bold;
+    color:red;
+}
+
+.maingrid{
+    margin: auto;
+    width: 905px;
+    padding: 15px;
+    background-color: black;
+    display:grid;
+    border-radius: 25px;
+    border-color: grey;
+    border-style: groove;
+    grid-template-columns: 600px 300px;
+    grid-auto-rows: 450px 300px;
+    grid-template-areas:
+    "snake score"
+    "chat chat"
+}
+
+.snakeframe{
+    grid-area: snake;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+.snake{
+    width: 100%;
+    height: 100%;
+}
+
+.scoreframe{
+    grid-area: score;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+}
+
+.topscores{
+    width: 100%;
+    height: 100%;
+}
+
+.chatframe{
+    grid-area: chat;
+    border-top:5px solid black;
+}
+
+.chat{
+    width: 100%;
+    height: 100%;
+}
