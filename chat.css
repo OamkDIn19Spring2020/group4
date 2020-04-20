@@ -1,7 +1,6 @@
 #mainblock {
-    height: 450px;
+    height: 250px;
     background-color: white;
-    margin-top: 70px;
 }
 .output{
     background-color: white;
@@ -22,13 +21,19 @@ input[type="submit"]{
     border-radius: 5px;
 }
 
-textarea{
+#message{
     background-color: #dcdcdc;
     width: 350px;
+    height: 50px;
 }
 
 body {
     background-color: lightgrey;
     
 
+}
+
+#sending{
+    margin: auto;
+    width: 50%;
 }
