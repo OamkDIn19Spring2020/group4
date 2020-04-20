@@ -8,6 +8,7 @@
     height:255px;
     margin-bottom: 20px;
     overflow: scroll;
+    padding: 10px;
 }
 
 ul{

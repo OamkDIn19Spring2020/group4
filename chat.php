@@ -11,8 +11,8 @@ include 'dbconnector.php';
 </head>
 
 <body>
+<h1> 		&emsp;   Logged in as  <?php echo $_SESSION['name']  ?></h1>
     <div id='mainblock'>
-        <h1> welcome <?php echo $_SESSION['name']  ?>!</h1>
         <div class="output">
 
             <?php
@@ -21,7 +21,7 @@ include 'dbconnector.php';
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo  "" . $row['name'] . " " . "::" . $row['msg'] . " -- " . $row['date'] . "<br>";
+                    echo  "" . $row['name'] . " " . ": " . $row['msg'] . " &emsp; " . $row['date'] . "<br>";
                     echo "<br>";
                 }
             } else {
@@ -30,7 +30,9 @@ include 'dbconnector.php';
 
             $conn->close();
             ?>
-
+            <script>
+                    window.scrollTo(0, document.body.scrollHeight);
+            </script>
 
 
 
