@@ -7,11 +7,15 @@ include 'dbconnector.php';
 
 <head>
     <title>HOME</title>
+    <meta http-equiv="Refresh" content="5" />
     <link rel="stylesheet" type="text/css" href="chat.css">
 </head>
 
 <body>
-<h1> 		&emsp;   Logged in as  <?php echo $_SESSION['name']  ?></h1>
+
+<!--<h1> 		&emsp;   Logged in as  <?php //echo $_SESSION['name']  ?>  </h1>   this script displays username  -->
+
+
     <div id='mainblock'>
         <div class="output">
 
@@ -29,18 +33,17 @@ include 'dbconnector.php';
             }
 
             $conn->close();
+            
             ?>
-            <script>
+                <script>
                     window.scrollTo(0, document.body.scrollHeight);
-            </script>
-
-
+                </script>
 
 
         </div>
         <div id="sending">
-            <form method="post" action="send.php">
-                <input type="text" name='msg' id="message" placeholder='enter your message' class="form-control"> <br>
+            <form method="post" action="send.php" id="sendingform">
+                <input type="text" name='msg' id="message" placeholder='enter your message' class="form-control"> <br><br>
                 <script>
                     var input = document.getElementById("message");
                     input.addEventListener("keyup", function(event) {
@@ -49,9 +52,14 @@ include 'dbconnector.php';
                         }
                     });
                 </script>
-                <input type="submit" value="send">
+                <div id="sendbutton" align="center">
+                <input type="submit" value="send" >
+                </div>
             </form>
             <br>
         </div>
     </div>
+    <script>
+                    window.scrollTo(0, document.body.scrollHeight);
+    </script>
 </body>
