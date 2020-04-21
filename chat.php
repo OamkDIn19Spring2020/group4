@@ -19,8 +19,7 @@ include 'dbconnector.php';
         <div class="output">
 
             <?php
-            while(true){
-            sleep(10);
+
             $sql = "SELECT * from(SELECT * FROM posts order by date desc limit 15) a order by date asc";
             $result = $conn->query($sql);
 
@@ -34,7 +33,7 @@ include 'dbconnector.php';
             }
 
             $conn->close();
-        }
+        
             
             
             ?>
