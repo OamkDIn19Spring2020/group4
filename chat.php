@@ -35,10 +35,6 @@ include 'dbconnector.php';
             $conn->close();
             
             ?>
-                <script>
-                    window.scrollTo(0, document.body.scrollHeight);
-                </script>
-
 
         </div>
         <div id="sending">
