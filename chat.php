@@ -7,7 +7,6 @@ include 'dbconnector.php';
 
 <head>
     <title>HOME</title>
-    <meta http-equiv="Refresh" content="5" />
     <link rel="stylesheet" type="text/css" href="chat.css">
 </head>
 
@@ -20,7 +19,9 @@ include 'dbconnector.php';
         <div class="output">
 
             <?php
-            $sql = "SELECT * FROM posts";
+            while(true){
+            sleep(10);
+            $sql = "SELECT * from(SELECT * FROM posts order by date desc limit 15) a order by date asc";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -33,6 +34,8 @@ include 'dbconnector.php';
             }
 
             $conn->close();
+        }
+            
             
             ?>
 
@@ -49,8 +52,9 @@ include 'dbconnector.php';
                     });
                 </script>
                 <div id="sendbutton" align="center">
-                <input type="submit" value="send" >
+                <input type="submit" value="send" id="sendbutton2" >
                 </div>
+                <br>
             </form>
             <br>
         </div>
