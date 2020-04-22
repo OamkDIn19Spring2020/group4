@@ -18,25 +18,7 @@ include 'dbconnector.php';
     <div id='mainblock'>
         <div class="output">
 
-            <?php
-
-            $sql = "SELECT * from(SELECT * FROM posts order by date desc limit 15) a order by date asc";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo  "" . $row['name'] . " " . ": " . $row['msg'] . " &emsp; " . $row['date'] . "<br>";
-                    echo "<br>";
-                }
-            } else {
-                echo "0 results";
-            }
-
-            $conn->close();
-        
-            
-            
-            ?>
+        <iframe src="chatoutput.php" id="outputframe"></iframe>
 
         </div>
         <div id="sending">
