@@ -35,9 +35,7 @@ include 'dbconnector.php';
                 <div id="sendbutton" align="center">
                 <input type="submit" value="send" id="sendbutton2" >
                 </div>
-                <br>
             </form>
-            <br>
         </div>
     </div>
     <script>

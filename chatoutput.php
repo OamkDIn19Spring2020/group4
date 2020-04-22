@@ -7,7 +7,6 @@ include 'dbconnector.php';
 <style>
     body{
         background-color: #689CD2;
-    box-shadow: 0px 1px 1px #000;
     height:255px;
     margin-bottom: 20px;
     padding: 10px;

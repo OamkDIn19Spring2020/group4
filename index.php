@@ -17,7 +17,7 @@
         <form name="login" action="login.php" method="post">
             <input type="text" placeholder="Username" name="Username1" class="textinp"    ><br><br >
             <input type="password" placeholder="Password" name="Password1" type="password" class="textinp"><br><br><br>
-            <button type="submit">log in</button><br>
+            <button type="submit" id="sub">log in</button><br>
         </form>
     </div>
     <div id="registerbox" >
@@ -25,7 +25,7 @@
             <input type="text" placeholder="Username" name="Uname" class="textinp"><br><br>
             <input type="text" placeholder="email"  name="Email" class="textinp"><br><br>
             <input type="password" placeholder="Password"  name="Password" type="password"class="textinp"><br><br><br>
-            <button type="submit">sign up</button><br>
+            <button type="submit" id="sub">sign up</button><br>
         </form>
     </div>
     </div>
