@@ -1,0 +1,23 @@
+
+body {
+    background: linear-gradient(45deg,#4E51D8, #303285);
+    background-repeat: no-repeat;
+    height:100%;
+    background-attachment: fixed;
+}
+
+.scoreholder{
+    margin: auto;
+}
+
+.leaderboards{
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    color:whitesmoke;
+}
+
+#leaderheader{
+    font-weight: bolder;
+    font-size: x-large;
+}
