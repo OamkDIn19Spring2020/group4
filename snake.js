@@ -138,26 +138,35 @@ function mainemenu() {
 function uploadscore() {
     console.log("Uploading scores")
 
-    let scoredata = new FormData();
-    scoredata.append("name", document.getElementById("username").value);
-    scoredata.append("score", document.getElementById("finalscore").value);
-    //create connection with database
-    var mysql = require('mysql');
-    var con = mysql.createConnection({
-            host: "mysli.oamk.fi",
-            user: "t9tkdm00",
-            password: "hA3tweSmrZTy6Ymp",
-            databse: "opisk_t9tkdm00"
-        })
-        //creating variables to take the score and add to database
-    con.connect(function(err) {
-        if (err) throw err
-        var sql = "INSERT INTO scoreboard(name,score) VALUES ('ada','700')";
-        con.query(sql, (err) => {
-            if (err) throw err //handling error
-            console.log('score updated');
-        })
-    })
+    let name = document.getElementById("username").value;
+    let score = document.getElementById("finalscore").value;
+
+    console.log(name, score);
+
+    xhr = new XMLHttpRequest();
+    var url = "http://localhost:3000/highscores";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json)
+            console.log("Status: " + json.status, "Message: " + json.message)
+            scoredata.append("name", name);
+            scoredata.append("score", score);
+        }
+
+        console.log("Status: " + json.status, "Message: " + json.message)
+    }
+
+    var payload = JSON.stringify({
+        "name": name,
+        "score": score
+    });
+
+    xhr.send(payload);
+
 } //doesnt work yet, uploads the user score in to database, disabled in the gameend code for now
 
 function gameend() {
@@ -179,7 +188,7 @@ function gameend() {
     ctx.fillText(finalscore, middlex, middley + 20);
 
     newgamebutton();
-    //uploadscore();
+    uploadscore();
 
 } //game end screen
 
