@@ -11,13 +11,16 @@ let ground_color = "antiquewhite";
 let border_color = "black";
 let snakebody_color = "cyan";
 let snakeborder_color= "green";
+let menu_bg = "grey";
+let menu_border = "red";
+let button_bg = "brown" ;
+let button_border = "Orange" ;
 
 let baitborder_color = "blue";
 
 let bait_color_int = Math.floor( Math.random() * 0xFFFFFF ) ;
 let bait_color = "000000" + bait_color_int.toString( 16 ) ;
 bait_color = bait_color.slice(bait_color.length - 6 ) ;
-
 
 //get canvas context
 const snakecanvas = document.getElementById("snakeground");
@@ -28,15 +31,55 @@ const ctx = snakecanvas.getContext("2d");
 let snake = [ {x:200, y:200}, {x:190, y:200}, {x:180, y:200}]
 
 //game variables
+let sessionname = document.getElementById("username"), name;
+username = username.getAttribute("value");
 let score = 0;
 let dx = 10; //direction x axis
 let dy = 0; //direction y axis
 let baitx;
 let baity;
-let snake_speed = 150
+let snake_speed = 150;
+let gameinprogress = false;
 
-startgame();
+//menu variables
+
+let middlex = snakecanvas.width/2;
+let middley = snakecanvas.height/2;
+
+let buttonx = snakecanvas.width/2-snakecanvas.width/12;
+let buttony = snakecanvas.height/1.6;
+let buttonwidth= snakecanvas.width/6;
+let buttonheight = snakecanvas.height/12;
+
+
+
+mainemenu();//loads the start menu
+
+
 document.addEventListener("keydown", controls);
+document.addEventListener('click', function(evt) {
+    var mouseloc = getmouseloc(snakecanvas, evt);
+    if (buttonclick(mouseloc)) {
+        if(gameinprogress == false){
+        cleancanvas();
+        resetgame();
+        startgame();
+        }
+    } 
+}, false);
+
+function getmouseloc(snakecanvas, event) {
+    var rect = snakecanvas.getBoundingClientRect();
+    return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
+    };
+} //gets mouse xy for clicking new game
+
+function buttonclick(pos){
+    return pos.x > buttonx && pos.x < buttonx+buttonwidth && pos.y < buttony+buttonheight && pos.y > buttony
+}//check if the click is on top of the button
+
 
 function resetgame(){
     snake.length = 0;
@@ -48,15 +91,102 @@ function resetgame(){
     document.getElementById("score").innerHTML = score;
 }   //resets game parameters
 
+function menubox(){
+    ctx.fillStyle = menu_bg ;
+    ctx.strokeStyle = menu_border ;
+    ctx.fillRect(snakecanvas.width/4, snakecanvas.height/4, snakecanvas.width/2, snakecanvas.height/2);
+    ctx.strokeRect(snakecanvas.width/4, snakecanvas.height/4, snakecanvas.width/2, snakecanvas.height/2) ;
+}   //draws menu box
+
+function newgamebutton(){
+
+    ctx.fillStyle = button_bg ;
+    ctx.strokeStyle = button_border ;
+    ctx.fillRect(buttonx, buttony, buttonwidth, buttonheight);
+    ctx.strokeRect(buttonx, buttony, buttonwidth, buttonheight) ;
+
+    ctx.fillStyle = "black" ;
+    ctx.font = "16px Georgia";
+    ctx.textAlign="center"; 
+    ctx.textBaseline = "middle";
+    ctx.fillText("New Game", (snakecanvas.width / 2 ), snakecanvas.height/1.5);  
+
+}   //draws new game button
+
+
+function mainemenu(){
+    cleancanvas()
+    menubox()
+    newgamebutton()
+    ctx.textAlign="center"; 
+    ctx.textBaseline = "middle";
+
+    ctx.fillStyle = "black" ;
+    ctx.font = "20px Georgia";
+    ctx.fillText("Snake", middlex, middley-50);
+    
+    ctx.fillText("Hello, " + username , middlex, middley-10);
+
+    let guide = "W, A, S, D to move." ;
+    ctx.fillStyle = "black" ;
+    ctx.font = "16px Georgia";
+    ctx.fillText(guide, middlex, middley+20);
+
+}   //Start menu
+
+function uploadscore(){
+    console.log("Uploading scores")
+
+    let scoredata = new FormData();
+    scoredata.append("name", document.getElementById("username").value);
+    scoredata.append("score", document.getElementById("finalscore").value);
+    
+    let xhtp = new XMLHttpRequest() ;
+    xhtp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("Score uploaded")
+       } else {
+           console.log("upload failed")
+       }
+    };
+    xhtp.open("POST", "upscore.php", true);
+    xhtp.send(scoredata);
+    return false;
+
+}   //doesnt work yet, uploads the user score in to database, disabled in the gameend code for now
+
+function gameend(){
+
+    document.getElementById("finalscore").value = score ;
+    gameinprogress = false;
+    
+    menubox();
+
+    let endtext = "Game Over"
+    ctx.fillStyle = "black" ;
+    ctx.font = "20px Georgia";
+    ctx.fillText(endtext, middlex, middley-50);
+
+    let scoretext = "Final Score" ;
+    ctx.fillText(scoretext, middlex, middley-10);
+
+    let finalscore = document.getElementById("finalscore").value ;
+    ctx.fillText(finalscore, middlex, middley+20);
+
+    newgamebutton();
+    //uploadscore();
+ 
+}   //game end screen
+
 function startgame(){
+    gameinprogress = true;
     gameloop();
     setbait();
 }   //starts the game
 
 function gameloop(){
     if(snakehit()) {
-    resetgame();
-    startgame();
+    gameend()
     }
     else{
     setTimeout(function onTick() { 
@@ -157,10 +287,10 @@ function drawsegment(segment) {
 }   //function for drawing individual snake segments
 
 function controls(event){
-    const move_left = 37;
-    const move_right = 39;
-    const move_up = 38;
-    const move_down = 40;
+    const move_left = 65;
+    const move_right = 68;
+    const move_up = 87;
+    const move_down = 83;
 
     if(controls) return;
     controls = true;

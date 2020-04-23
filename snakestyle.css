@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(45deg,#4E51D8, #303285);
+    background-repeat: no-repeat;
+    height:100%;
+    background-attachment: fixed;
+}
+
+
+#snakeground{
+    margin-left:auto;
+    margin-right: auto;
+    display:block;
+    background-color: white;
+}
+#scorebox{
+    display:grid;
+    grid-template-columns: auto auto ;
+    margin-bottom: 5px;
+    color: whitesmoke;
+}
+#scoretext{
+    text-align: right;
+}
+#score{
+    text-align: left;
+}
