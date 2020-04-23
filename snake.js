@@ -152,7 +152,7 @@ function uploadscore() {
         //creating variables to take the score and add to database
     con.connect(function(err) {
         if (err) throw err
-        var sql = "INSERT into opisk_t9tkdm00(x,x) value(x,x)"
+        var sql = "INSERT INTO scoreboard(name,score) VALUES ('ada','700')";
         con.query(sql, (err) => {
             if (err) throw err //handling error
             console.log('score updated');
