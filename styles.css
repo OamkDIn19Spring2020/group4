@@ -39,7 +39,6 @@ body{
     grid-template-areas:
     "snake score"
     "chat chat"
-    "chat chat"
 }
 
 .snakeframe{
