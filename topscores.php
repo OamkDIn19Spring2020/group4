@@ -7,7 +7,7 @@ include 'dbconnector.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" >
     <link rel="stylesheet" href="scorestyles.css">
     <title>TopScores</title>
 
@@ -19,7 +19,7 @@ include 'dbconnector.php';
         <?php
 
                 
-                $sql = "SELECT name, score FROM scoreboard order by score desc limit 100";
+                $sql = "SELECT name, score FROM scoreboard order by score desc limit 10";
                  $result = $conn->query($sql);
         
                  if ($result->num_rows > 0) {

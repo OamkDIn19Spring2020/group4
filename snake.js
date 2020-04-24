@@ -153,7 +153,7 @@ function uploadscore(){
     xhtp.send(scoredata);
     return false;
 
-}   //doesnt work yet, uploads the user score in to database, disabled in the gameend code for now
+}   //uploads the user score in to database by calling ajax request through upscore.php
 
 function gameend(){
 
@@ -174,7 +174,7 @@ function gameend(){
     ctx.fillText(finalscore, middlex, middley+20);
 
     newgamebutton();
-    //uploadscore();
+    uploadscore();
  
 }   //game end screen
 

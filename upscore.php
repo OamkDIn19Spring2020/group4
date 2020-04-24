@@ -1,9 +1,15 @@
 <?php
 
-include 'dbconnector.php';
+session_start();
+include "pdodbconnection.php";
 
 
-    $sql ="INSERT INTO scoreboard(name,score) VALUES ("ada","700")";
-    $db->query($sql);
+
+$name=$_POST['name'];
+$score=$_POST['score'];
+
+$sql ="INSERT INTO scoreboard(name,score) VALUES ('$name','$score')";
+$db->query($sql);
+header("Location:snake.php");
 
 ?>

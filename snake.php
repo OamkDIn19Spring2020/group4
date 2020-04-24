@@ -10,8 +10,8 @@
 <head>
 <link rel="stylesheet" href="snakestyle.css">
 
-<div type="hidden" id="username" name="username" value="<?php echo $username?>">
-<div type="hidden" id="finalscore" name="finalscore" value="0">
+<input type="hidden" id="username" name="username" value="<?php echo $username?>">
+<input type="hidden" id="finalscore" name="finalscore" value="0">
     
 </head>
 
