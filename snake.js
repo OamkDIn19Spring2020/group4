@@ -40,6 +40,7 @@ let baitx;
 let baity;
 let snake_speed = 150;
 let gameinprogress = false;
+document.getElementById("subbutt").style.display = "none"
 
 //menu variables
 
@@ -88,7 +89,7 @@ function resetgame(){
     dx = 10;
     dy = 0;
     snake_speed = 150;
-    document.getElementById("score").innerHTML = score;
+    document.getElementById("tosendscore").value = score;
 }   //resets game parameters
 
 function menubox(){
@@ -140,6 +141,7 @@ function uploadscore(){
     let scoredata = new FormData();
     scoredata.append("name", document.getElementById("username").value);
     scoredata.append("score", document.getElementById("finalscore").value);
+    scoredata.append("score", document.getElementById("tosendscore").value);
     
     let xhtp = new XMLHttpRequest() ;
     xhtp.onreadystatechange = function() {
@@ -158,6 +160,8 @@ function uploadscore(){
 function gameend(){
 
     document.getElementById("finalscore").value = score ;
+    document.getElementById("tosendscore").value = score;
+    document.getElementById("subbutt").style.display = "flex"
     gameinprogress = false;
     
     menubox();
@@ -179,6 +183,7 @@ function gameend(){
 }   //game end screen
 
 function startgame(){
+    document.getElementById("subbutt").style.display = "none"
     gameinprogress = true;
     gameloop();
     setbait();
@@ -251,7 +256,7 @@ function movesnake() {
             snake_speed = snake_speed - 5;
         }
         score +=100
-        document.getElementById("score").innerHTML = score;
+        document.getElementById("tosendscore").value = score;
         
         
 

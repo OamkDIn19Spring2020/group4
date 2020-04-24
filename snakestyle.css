@@ -24,3 +24,14 @@ body {
 #score{
     text-align: left;
 }
+
+#buttbox{
+    width:50%;
+    margin: auto;
+}
+
+#tosendscore{
+    border: none;
+    background-color: rgba(0,0,0,0);
+    color: white;
+}

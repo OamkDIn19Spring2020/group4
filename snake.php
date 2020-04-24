@@ -18,7 +18,14 @@
 <body bgcolor="yellow">
 
     
-    <div id="scorebox"><div id="scoretext">Score:&nbsp&nbsp</div><div id=score>&nbsp0</div></div>
+    <div id="buttbox">
+        <form method="post" action="sendscore.php" id="form">
+         <p style="color:white"> score :  <input id="tosendscore" name="score" readonly > </p>
+         <div style="margin: auto; width:50%" id="subbutt">
+            <input type="submit" value="send score"> 
+         </div>
+        </form>
+    </div>
     <canvas 
     id = snakeground
     width = 580
