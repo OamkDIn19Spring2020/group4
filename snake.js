@@ -161,7 +161,7 @@ function gameend(){
 
     document.getElementById("finalscore").value = score ;
     document.getElementById("tosendscore").value = score;
-    document.getElementById("subbutt").style.display = "flex"
+    document.getElementById("sendscorebutton").click();
     gameinprogress = false;
     
     menubox();
@@ -183,7 +183,6 @@ function gameend(){
 }   //game end screen
 
 function startgame(){
-    document.getElementById("subbutt").style.display = "none"
     gameinprogress = true;
     gameloop();
     setbait();
