@@ -176,13 +176,13 @@ function gameend(){
     newgamebutton();
     uploadscore();
  
-}   //game end screen
+}   //game end screen, updates the hidden final score  and calls uploadfunction to add the score in to database
 
 function startgame(){
     gameinprogress = true;
     gameloop();
     setbait();
-}   //starts the game
+}   //starts the game, turns game in progress to true disabling the newgame button area from reqistering clicks
 
 function gameloop(){
     if(snakehit()) {

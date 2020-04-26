@@ -3,7 +3,7 @@ session_start();
 include 'dbconnector.php';
 ?>
 <head>
-<meta http-equiv="refresh" content="15">
+<meta http-equiv="refresh" content="5">
 <style>
     body{
         background-color: #689CD2;

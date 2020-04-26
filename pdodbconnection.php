@@ -13,5 +13,4 @@ try
 	 print ("Error message: " . $e->getMessage () . "\n");
     }
     
-
 ?>
