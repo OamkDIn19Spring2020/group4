@@ -47,6 +47,7 @@ width: 96%;
 }
 #sendbutton2:hover{
     cursor: pointer;
+    background-color: #2f6bac;
 }
 #outputframe{
     background-color: #689CD2;
