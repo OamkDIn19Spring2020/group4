@@ -1,6 +1,11 @@
 <?php
 session_start();
 include 'dbconnector.php';
+
+if (isset($_SESSION['name']) == false) {
+    header("Location:index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
