@@ -3,7 +3,7 @@ session_start();
 include 'dbconnector.php';
 ?>
 <head>
-<meta http-equiv="refresh" content="5">
+<meta http-equiv="refresh" content="10">
 <style>
     body{
         background-color: #689CD2;
@@ -41,6 +41,6 @@ include 'dbconnector.php';
 
         </div>
         <script>
-                    window.scrollTo(0, document.body.scrollHeight);
+        setTimeout(function() {window.scrollBy(0, document.body.scrollHeight);},10)
     </script>
 </body>
