@@ -66,6 +66,9 @@ body{
     border: solid 2px black;
     border-radius: 5px;
 }
+#logoutbutton:hover{
+    cursor: pointer;
+}
 .scoreframe{
     grid-area: score;
     border-bottom: 5px solid black;

@@ -13,6 +13,7 @@
 
     <div class="contentbox">
         <div id="logoutsbutton">
+        <h2 style="color:white; width:95%; margin:auto; text-align:center">  Logged in as  <?php echo $_SESSION['name']?>  </h2> <br>
             <form action='logout.php' id="form">
                 <input type="submit" value="logout" id="logoutbutton">
             </form>
