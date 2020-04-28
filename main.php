@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'dbconnector.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
